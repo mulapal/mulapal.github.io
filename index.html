@@ -243,5 +243,164 @@
             contactOptions.style.display = contactOptions.style.display === "flex" ? "none" : "flex";
         });
     </script>
+<style>
+  /* Pop-up Background Overlay */
+  #popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 9998;
+  }
 
+  /* Pop-up Container */
+  #statehela-popup {
+    position: fixed;
+    width: 380px;
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.0); /* Transparent background */
+    color: #fff;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  }
+
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close-btn:hover {
+    background: red;
+  }
+
+  /* Title */
+  #statehela-popup h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  /* Description */
+  #statehela-popup p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  /* Button Container */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  /* Button Styles */
+  .popup-btn {
+    flex: 1;
+    margin: 5px;
+    padding: 12px;
+    background: #ff9800;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 5px 10px rgba(255, 152, 0, 0.3);
+  }
+
+  .popup-btn:hover {
+    background: #e68900;
+    transform: scale(1.05);
+  }
+
+  /* Bottom Center Button */
+  .bottom-center {
+    display: block;
+    margin: 15px auto 0;
+    width: 100%;
+    background: #28a745;
+    box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+  }
+
+  .bottom-center:hover {
+    background: #218838;
+  }
+
+  /* Show Pop-up Animation */
+  .show-popup {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+
+  /* Responsive for Small Screens */
+  @media (max-width: 480px) {
+    #statehela-popup {
+      width: 90%;
+      padding: 20px;
+    }
+    .popup-btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+</style>
+
+<!-- Background Overlay -->
+<div id="popup-overlay" onclick="closePopup()"></div>
+
+<!-- Pop-up Section -->
+<div id="statehela-popup">
+  <button class="close-btn" onclick="closePopup()">×</button>
+  <h3>Mulapal</h3>
+<p>Mulapal is an online earning platform where users make money by watching videos, clicking ads, answering surveys, and promoting content. Join Mulapal today and start earning rewards easily!</p>
+  <!-- Buttons inside the pop-up -->
+  <div class="button-container">
+    <a href="https://www.mulapal.org/" class="popup-btn" target="_blank">Get Account</a>
+    <a href="https://www.mulapal.org/" class="popup-btn" target="_blank">Try Tasks</a>
+  </div>
+  <a href="https://www.mulapal.org/" class="popup-btn bottom-center" target="_blank">Confirm if Legit</a>
+</div>
+
+<script>
+  function showPopup() {
+    document.getElementById("popup-overlay").style.display = "block";
+    document.getElementById("statehela-popup").classList.add("show-popup");
+    document.getElementById("statehela-popup").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("popup-overlay").style.display = "none";
+    document.getElementById("statehela-popup").style.display = "none";
+  }
+
+  window.onload = function () {
+    setTimeout(showPopup, 3000); // Show pop-up after 3 seconds
+  };
+</script>
 </html>
